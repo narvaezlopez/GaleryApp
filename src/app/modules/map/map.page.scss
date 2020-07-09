@@ -13,4 +13,7 @@ ion-item#main{
 }
 ion-content{
   --background:var(--ion-color-dark);
+  div#map{
+    height:100%;
+  }
 }
