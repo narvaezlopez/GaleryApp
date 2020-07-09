@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginPage } from '../login/login.page';
 
 import { Storage } from '@ionic/storage';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-folder',
@@ -40,7 +41,7 @@ export class FolderPage implements OnInit {
     }
   ];
   user:string;
-  constructor(private activatedRoute: ActivatedRoute, private storage: Storage) { }
+  constructor(private activatedRoute: ActivatedRoute, private storage: Storage, public auth: AngularFireAuth, private router:Router) { }
 
   ngOnInit() {
 
@@ -50,5 +51,8 @@ export class FolderPage implements OnInit {
       console.log(error);
     })
   }
-
+  logout(){
+    this.auth.signOut();
+    this.router.navigate(['/login']);
+  }
 }

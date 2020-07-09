@@ -72,6 +72,7 @@ export class LoginPage implements OnInit {
     .catch((error)=>{
       console.log(error);
     })
+    this.router.navigate(['/folder/galery']);
   }
 
   logout() {
@@ -83,7 +84,7 @@ export class LoginPage implements OnInit {
     this.router.navigate(['']);
   }
   Menu(){
-    this.router.navigate(['/folder']);
+    this.router.navigate(['/folder/galery']);
   }
 
 }
