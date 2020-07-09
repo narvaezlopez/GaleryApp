@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-item id="main">
+      <ion-icon name="chatbubble-ellipses-outline" slot="start"></ion-icon>
+      <ion-label id="main-title">
+        Chat
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let message of chatRef| async">
+    <ion-card-header>
+      <h3>{{message.name}}:</h3>
+    </ion-card-header>
+    <ion-card-content>
+      <h3>{{message.message}}</h3>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <form #formulario="ngForm" (ngSubmit)="send()">
+      <ion-input placeholder="type a message" name="message" [(ngModel)]="chat.message"></ion-input>
+    <ion-button type="submit">
+      <ion-label>
+        Enviar
+      </ion-label>
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+    </form>
+    
+  </ion-toolbar>
+</ion-footer>

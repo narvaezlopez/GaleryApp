@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-item id="main">
+      <ion-icon name="help-outline" slot="start"></ion-icon>
+      <ion-label id="main-title">
+        Contact Us
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+      <ion-item>
+        <ion-label id="name" position="floating">Name:</ion-label>
+        &nbsp;
+        <ion-input [(ngModel)]="petition.username" name="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label id="lastname" position="floating">Last Name:</ion-label>
+        &nbsp;
+        <ion-input [(ngModel)]="petition.userlastname" name="lastname" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label id="email" position="floating">Email:</ion-label>
+        &nbsp;
+        <ion-input [(ngModel)]="petition.email" name="email" type="email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label id="phone" position="floating">Phone:</ion-label>
+        &nbsp;
+        <ion-input [(ngModel)]="petition.phone" name="phone"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label id="message" position="floating">Message:</ion-label>
+        &nbsp;
+        <ion-input [(ngModel)]="petition.message" name="message" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <div id="login">
+      <ion-button type="submit" color="warning">
+        <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+        <ion-label>
+          ADD!
+        </ion-label>
+      </ion-button>
+    </div>
+  </form> 
+</ion-content>

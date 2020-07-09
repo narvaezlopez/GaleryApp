@@ -1,0 +1,15 @@
+ion-header{
+    background:rgb(41, 39, 39);
+    border-bottom: solid 2px;
+    border-bottom-color: #f8b607;
+    div#buttons{
+      text-align: right;
+      padding-right: 20px;
+      ion-button{
+        font-family: 'Russo One', sans-serif;
+        --background:#77003c;
+        padding-right: 10px;
+        color: #fbe47b;
+      }
+    }
+  }

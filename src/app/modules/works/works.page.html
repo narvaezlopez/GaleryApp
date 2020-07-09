@@ -1,0 +1,121 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-item id="main">
+      <ion-icon name="list-circle-outline" slot="start"></ion-icon>
+      <ion-label id="main-title">
+        List of Tasks
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <ion-item>
+          <ion-button color="warning">
+            <ion-icon name="alert-outline"></ion-icon>
+          </ion-button>
+          <ion-label >
+            <h2>Pending Task</h2>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col size="3">
+        <ion-item>
+          <ion-button color="success">
+            <ion-icon name="checkbox-outline"></ion-icon>
+          </ion-button>
+          <ion-label >
+            <h2>Checked Task</h2>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-list>
+    <ion-item *ngFor="let task of tasks">
+      <div *ngIf="task.state==false">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="7">
+              <ion-label >
+                <h1>{{task.name}}</h1>
+                <h4>{{task.desc}}</h4>
+                <h4>location: {{task.latitude}},{{task.longitude}}</h4>
+              </ion-label>
+            </ion-col>
+            <ion-item>
+              <ion-button color="primary">
+                Task details
+              </ion-button>
+              <ion-button color="warning" (click)="checkTask(task.name,task.desc,task.latitude,task.longitude,task.accuracy)">
+                <ion-icon name="alert-outline"></ion-icon>
+              </ion-button>
+              <ion-button color="danger" (click)="confirmarBorrado(task.name)">
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-button>
+            </ion-item>
+          </ion-row>
+        </ion-grid> 
+      </div>
+      <div *ngIf="task.state==true">
+        <ion-row>
+          <ion-col size="7">
+            <ion-label color="success" >
+              <h1>{{task.name}}</h1>
+              <h4>{{task.desc}}</h4>
+              <h4>location: {{task.latitude}},{{task.longitude}}</h4>
+              <h4></h4>
+            </ion-label>
+          </ion-col>
+          <ion-item>
+            <ion-button color="primary">
+              Task details
+            </ion-button>
+            <ion-button color="success" (click)="uncheckTask(task.name,task.desc,task.latitude,task.longitude,task.accuracy)">
+              <ion-icon name="checkbox-outline"></ion-icon>
+            </ion-button>
+            <ion-button color="danger" (click)="confirmarBorrado(task.name)">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-row>
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <ion-button color="warning" (click)="addNewTask()">
+      Add new task
+    </ion-button>
+  </ion-item>
+  <div *ngIf="x==true; then thenBlock else elseBlock"> </div>
+  <ng-template #thenBlock>
+    <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+      <ion-list>
+        <ion-item>
+          <ion-label id="name" position="floating">Name:</ion-label>
+          &nbsp;
+          <ion-input [(ngModel)]="task.name" name="name" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label id="description" position="floating">Description:</ion-label>
+          &nbsp;
+          <ion-input [(ngModel)]="task.desc" name="desc" required></ion-input>
+        </ion-item>
+      </ion-list>
+      <div id="login">
+        <ion-button type="submit" color="warning">
+          <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+          <ion-label>
+            ADD!
+          </ion-label>
+        </ion-button>
+      </div>
+    </form>
+  </ng-template>
+
+</ion-content>
