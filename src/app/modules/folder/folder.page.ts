@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoginPage } from '../login/login.page';
 
+import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'app-folder',
   templateUrl: './folder.page.html',
@@ -37,10 +39,16 @@ export class FolderPage implements OnInit {
       icon: 'chatbubble-ellipses'
     }
   ];
-  constructor(private activatedRoute: ActivatedRoute) { }
+  user:string;
+  constructor(private activatedRoute: ActivatedRoute, private storage: Storage) { }
 
   ngOnInit() {
 
+    this.storage.get('username').then((data)=>{
+     this.user=data;
+    }).catch((error)=>{
+      console.log(error);
+    })
   }
 
 }

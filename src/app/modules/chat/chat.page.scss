@@ -1,0 +1,16 @@
+ion-label#main-title{
+
+    color:#fbe47b;
+    font-family: 'Russo One', sans-serif;
+    font-size: 20px;
+    
+}
+ion-item#main{
+    --background:var(--ion-color-dark);
+    ion-icon{
+        color:#fbe47b;
+    }
+}
+ion-content{
+    --background:var(--ion-color-dark);
+}

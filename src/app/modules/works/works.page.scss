@@ -1,10 +1,88 @@
-ion-header{
-
+ion-label#main-title{
+    color:#fbe47b;
+    font-family: 'Russo One', sans-serif;
+    font-size: 20px;
+}
+ion-item#main{
+    --background:var(--ion-color-dark);
+    ion-icon{
+        color:#fbe47b;
+    }
 }
 ion-content{
+    --background: var(--ion-color-dark);
+    ion-grid{
+        ion-row{
+         ion-col{
+             ion-item{
+                --background:var(--ion-color-dark);
+                 ion-button{
+                     ion-icon{
+
+                     }
+                 }
+                 ion-label{
+                    font-family: 'Russo One', sans-serif;
+                    color: white;
+                 }
+             }
+         }   
+        }
+    }
     ion-list{
+        background:var(--ion-color-dark);
         ion-item{
-            
+            --background:var(--ion-color-dark);
+            border: white solid 2px;
+            ion-grid{
+                ion-row{
+                    ion-col{
+                        padding-left: 20px;
+                        ion-icon{
+                            --color: var(--ion-color-white);
+                        }
+                        ion-label{
+                            font-family: 'Russo One', sans-serif;
+                        }
+                    }
+                    ion-item#buttons{
+                        border: transparent;
+                    }
+                }
+
+            }
+        }
+    }
+    ion-item#new{
+        --background: var(--ion-color-dark);
+        ion-button{
+            margin:auto;
+            font-family: 'Russo One', sans-serif;
+        }
+    }
+    form{
+        ion-list{
+            ion-item#form{
+                border:transparent;
+                ion-input{
+                    --background:white;
+                }
+                ion-label{
+                    font-family: 'Russo One', sans-serif;
+                }
+            }
+        }
+        div#add{
+            text-align: center;
+            ion-button{
+                margin:auto;
+                ion-icon{
+
+                }
+                ion-label{
+                    font-family: 'Russo One', sans-serif;
+                }
+            }
         }
     }
 }

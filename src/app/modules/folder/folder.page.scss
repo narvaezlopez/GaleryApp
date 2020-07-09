@@ -1,17 +1,31 @@
-
 ion-menu ion-item {
   --padding-start: 5px;
   --padding-end: 5px;
   border-radius: 4px;
   
 }
-
 ion-split-pane{ 
     --border: none !important;
     --side-max-width:300px;
     ion-menu{
      --background: var(--ion-color-dark) !important; 
      border-right: 3px solid var(--ion-color-step-150,#77003c);
+     ion-item{
+      --background: var(--ion-color-dark) !important;
+      ion-label{
+        
+        font-family: 'Russo One', sans-serif;
+        h4{
+          color: #fbe47b;
+          font-size: 30px;
+        }
+        h3{
+          color: var(--ion-color-light) !important;
+          font-size: 20px;
+        }
+        
+      }
+     }
         ion-content#Main-Menu{            
             --background: ; 
             --padding-top: 20px;
